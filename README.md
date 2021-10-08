@@ -12,6 +12,8 @@ MountainClimb will include:
 
 ## Wireframe
 
+![](https://github.com/sparsons808/MountainClimb/blob/main/Untitled%20drawing.png)
+
 ## APIs and Technologies:
 
 - This project was built using canvas
