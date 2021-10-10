@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let game = new Game(GAME_WIDTH, GAME_HEIGHT)
 
+    
+
     let tileSheet = new Image()
     tileSheet.src = './assets/block.png'
 
@@ -43,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.drawImage(tileSheet, 90, 280, 35, 25);
     }, false)
 
-    
+    game.draw(ctx)
 
     
 
