@@ -2,6 +2,8 @@
 export function inputHandler(sprite) {
 
     document.addEventListener('keydown', (event) => {
+        event.preventDefault();
+        // console.log(event.keyCode);
         switch(event.keyCode) {
             case 39:
                 sprite.moveRight();
@@ -12,13 +14,19 @@ export function inputHandler(sprite) {
         }
     });
 
+    document.addEventListener('keypress', (event) => {
+        event.preventDefault();
+        if(event.keyCode === 32) sprite.moveUp();
+    })
+
     document.addEventListener('keyup', (event) => {
+        event.preventDefault();
         switch(event.keyCode) {
             case 39:
-                if (sprite.speed.x > 0) sprite.stop()
+                if (sprite.speedX > 0) sprite.stop()
                 break;
             case 37:
-                if(sprite.speed.x < 0) sprite.stop()
+                if(sprite.speedX < 0) sprite.stop()
                 break;
             case 32:
                 sprite.falling();

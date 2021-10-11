@@ -1,11 +1,13 @@
 export default class Sprite {
     constructor(game) {
         this.game = game
-        this.speed = { x: 4, y: 2}
-        this.totalSpeed = 10
-        this.position = {x: 0, y: 375}
+        this.speedX = 0
+        this.speedY = 0
+        this.totalSpeed = 6
+        this.position = {x: 200, y: 375}
         this.width = 16
         this.height = 16
+        this.velocity = 0.462
 
     }
 
@@ -14,25 +16,35 @@ export default class Sprite {
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
     }
 
-    update() {
-        this.position.x += this.speed.x
-        this.position.y += this.speed.y
+    update(timeDelta) {
+        this.position.x += this.speedX
+        this.position.y += this.speedY
+
+        if(this.position.x + this.width > this.game.gameWidth) {
+            this.position.x = this.game.gameWidth - this.width;
+        }
+
+        if(this.position.x < 0) this.position.x = 0;
+
+        // if (this.position.y > this.game.gameHeight) {
+        //     this.position.y = this.game.gameHeight - this.height
+        // }
     }
 
     moveLeft() {
-        this.speed.x = -this.totalSpeed
+        this.speedX = -this.totalSpeed
     }
 
     moveRight() {
-        this.speed.x = this.totalSpeed
+        this.speedX = this.totalSpeed
     }
 
     moveUp() {
-        this.speed.y = -this.totalSpeed
+        this.speedY = -this.totalSpeed - this.velocity
     }
 
     falling() {
-        this.speed.y = this.totalSpeed
+        this.speedY = this.totalSpeed / 2
     }
 
     stop() {
