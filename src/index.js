@@ -1,4 +1,5 @@
 import Game from './scripts/game'
+import { inputHandler } from './scripts/input'
 
 document.addEventListener('DOMContentLoaded', () => {
     let canvas = document.querySelector('.screen')
@@ -16,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let lava = new Image()
     lava.src = './assets/lava.png'
+
+    inputHandler();
 
     // lava make one that is 450 by 500 in hieght
     lava.addEventListener('load', () => {
@@ -46,6 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }, false)
 
     game.draw(ctx)
+
+    // let time = 0
+
+    // function engine(currentTime) {
+    //     let dT = timeStamp - time
+    //     time = currentTime
+
+        
+    // }
 
     
 
