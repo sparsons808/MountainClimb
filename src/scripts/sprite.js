@@ -8,6 +8,11 @@ export default class Sprite {
         this.width = 16
         this.height = 16
         this.velocity = 0.462
+
+        // to get the fall right have a y starting position and add speed times whatever
+        // which will equal to the y ending point at which time the sprite will fall
+        // collison math remeber that objects x and y coordinates on canvas
+        // come from the left most corner
     }
 
     draw(ctx) {
