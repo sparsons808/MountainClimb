@@ -1,5 +1,5 @@
 import Sprite from "./sprite";
-import { buildLevel } from './levels'
+import { buildLevel, level1 } from './levels'
 import { inputHandler } from './input'
 
 export default class Game {
