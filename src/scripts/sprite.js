@@ -8,7 +8,6 @@ export default class Sprite {
         this.width = 16
         this.height = 16
         this.velocity = 0.462
-
     }
 
     draw(ctx) {
@@ -25,6 +24,10 @@ export default class Sprite {
         }
 
         if(this.position.x < 0) this.position.x = 0;
+
+        if(this.position.y - this.height === this.game.gameHeight){
+            reset();
+        }
 
         // if (this.position.y > this.game.gameHeight) {
         //     this.position.y = this.game.gameHeight - this.height
@@ -48,6 +51,11 @@ export default class Sprite {
     }
 
     stop() {
-        this.speed = 0
+        this.speedX = 0
     }
+
+    // reset() {
+    //     this.position.y = 375
+    //     this.position.x = 200
+    // }
 }

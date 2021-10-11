@@ -9,7 +9,6 @@ export default class Game {
 
         this.sprite = new Sprite(this);
 
-        buildLevel(ctx);
         inputHandler(this.sprite);
     }
 
@@ -18,9 +17,9 @@ export default class Game {
         buildLevel(ctx)
     }
 
-    update(timeDelta){
+    update(timeDelta, ctx){
         this.sprite.update(timeDelta);
-        
+        buildLevel(ctx)
     }
 
 }

@@ -14,7 +14,7 @@ export function inputHandler(sprite) {
         }
     });
 
-    document.addEventListener('keypress', (event) => {
+    document.addEventListener('keydown', (event) => {
         event.preventDefault();
         if(event.keyCode === 32) sprite.moveUp();
     })
