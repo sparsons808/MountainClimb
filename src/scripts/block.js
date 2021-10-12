@@ -1,3 +1,5 @@
+import { collison } from "./collision";
+
 export default class Block {
     constructor(game, position) {
         this.game = game;
@@ -22,6 +24,8 @@ export default class Block {
     }
 
     update(timeDeltal) {
-
+        if(collison(this.game.sprite, this)) {
+            this.game.sprite.stopFalling()
+        }
     }
 }

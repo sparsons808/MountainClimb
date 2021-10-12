@@ -1,4 +1,4 @@
-// import { collison } from "./collision"
+import { collison } from "./collision"
 
 export default class Sprite {
     constructor(game) {
@@ -40,15 +40,6 @@ export default class Sprite {
             reset();
         }
 
-        // this.game.objects.forEach( (object) => {
-        //     if(collison(this, object)) {
-        //         this.speedY = -this.speedY
-        //     } else if(collison(this, object) === false) {
-        //         this.speedY = 0
-        //         this.position.y = object.position.y - this.height
-        //     }
-        // });
-
         // if (this.position.y > this.game.gameHeight) {
         //     this.position.y = this.game.gameHeight - this.height
         // }
@@ -68,11 +59,8 @@ export default class Sprite {
 
         this.speedY = -this.totalSpeed + this.velocity
 
-        // do {
-        //     this.speedY = -this.totalSpeed + this.velocity
-        // } while (this.position.y > endPos);
 
-        // this.falling();
+        // this.stopFalling();
         // implement logic that goes like this
         // after the sprite has jumped 5times its hight it 
         // comes down

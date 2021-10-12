@@ -38,7 +38,7 @@ export default class Game {
     }
 
     draw(ctx) {
-        debugger
+        // debugger
         this.sprite.draw(ctx)
 
         this.objects.forEach( (object) => {
@@ -52,6 +52,8 @@ export default class Game {
         this.objects.forEach( (object) => {
             object.update(timeDelta)
         })
+
+        
 
         // inputHandler(this.sprite);
 

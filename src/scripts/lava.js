@@ -21,6 +21,11 @@ export default class Lava {
     }
 
     update(timeDelta) {
-        // this.position.y -= this.speed;
+        if(this.position.y <= 100) this.stop();
+        this.position.y -= this.speed;
+    }
+
+    stop() {
+        this.speed = 0
     }
 }
