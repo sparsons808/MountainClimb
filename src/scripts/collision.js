@@ -1,4 +1,4 @@
-export function collison(sprite, object) {
+export function collision(sprite, object) {
     
     let topOfSprite = sprite.position.y
     
@@ -21,15 +21,17 @@ export function collison(sprite, object) {
     let xDistanceCenter = sprite.width / 2 + object.width / 2 - 4
     let yDistanceCenter = sprite.height / 2 + object.height / 2 - 1
 
-    if(topOfSprite === bottomOfObject){
-        sprite.speedY = sprite.speedY
-    }
+    // if(topOfSprite === bottomOfObject){
+    //     sprite.speedY = sprite.speedY
+    // }
 
     
     if(distanceFromObject(sprite, object) < yDistanceCenter && distanceFromObject(sprite, object) < xDistanceCenter) {
         sprite.speedY = 0
-        sprite.position.y = topOfObject - sprite.height
-    }
+        sprite.position.y = topOfObject - sprite.height        
+    } 
+
+
     // } else if (distanceFromObject(sprite, object) > yDistanceCenter && distanceFromObject(sprite, object) < xDistanceCenter){
     //     // console.log('hit')
     // }
@@ -37,7 +39,7 @@ export function collison(sprite, object) {
 
 // us parag
 
-function distanceFromObject(sprite, object) {
+export function distanceFromObject(sprite, object) {
     let horizontalDistance = (object.position.x + object.width / 2) - (sprite.position.x + sprite.width / 2) 
     let verticalDistance = (object.position.y + object.height / 2) - (sprite.position.y + sprite.height / 2)
 

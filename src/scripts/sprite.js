@@ -1,15 +1,20 @@
-import { collison } from "./collision"
+import { collision, distanceFromObject } from "./collision"
 
 export default class Sprite {
     constructor(game) {
         this.game = game
         this.speedX = 0
         this.speedY = 0
+        this.gravity = 0
+        this.friction = 0.9
         this.totalSpeed = 6
         this.position = {x: 200, y: 375}
-        this.width = 16
-        this.height = 16
-        this.velocity = 0.462
+        this.width = 20
+        this.height = 20
+        this.Xvelocity = 5
+        this.Yvelocity = 0
+
+        this.jumping = false
 
         // to get the fall right have a y starting position and add speed times whatever
         // which will equal to the y ending point at which time the sprite will fall
@@ -27,6 +32,8 @@ export default class Sprite {
     update(timeDelta) {
 
 
+
+
         this.position.x += this.speedX
         this.position.y += this.speedY
 
@@ -34,49 +41,73 @@ export default class Sprite {
             this.position.x = this.game.gameWidth - this.width;
         }
 
+
         if(this.position.x < 0) this.position.x = 0;
 
         if(this.position.y - this.height === this.game.gameHeight){
-            reset();
+            // reset();
         }
+
+        // for (let i = 0; i < this.game.objects.length; i++) {
+        //     if(this.position.x > this.game.objects[i].position.x + this.game.objects[i].width ||
+        //         this.position.x < this.game.objects[i].position.x &&
+        //         this.position.y === this.game.objects[i].position.y){
+        //         // console.log('falling')
+        //         this.falling();
+        //     }
+            
+        // }
+
+        for (let i = 0; i < this.game.objects.length; i++) {
+            if(collision(this, this.game.objects[i])){
+                console.log('hit')
+            }
+            
+        }
+
+
 
         // if (this.position.y > this.game.gameHeight) {
         //     this.position.y = this.game.gameHeight - this.height
         // }
     }
 
-    moveLeft() {
-        this.speedX = -this.totalSpeed
-    }
+    // moveLeft() {
+    //     this.speedX -= this.velocity
+    //     this.velocity *= 0.9
+    // }
 
-    moveRight() {
-        this.speedX = this.totalSpeed
-    }
+    // moveRight() {
+    //     this.speedX += this.velocity
+    //     this.velocity *= 0.9
+    // }
 
-    moveUp() {
-        let startPos = this.position.y
-        let endPos = startPos - this.height * 5
-
-        this.speedY = -this.totalSpeed + this.velocity
-
-
-        // this.stopFalling();
-        // implement logic that goes like this
-        // after the sprite has jumped 5times its hight it 
-        // comes down
-    }
-
-    falling() {
-        this.speedY = -this.speedY
+    // moveUp() {
+    //     let startPos = this.position.y
+    //     let endPos = startPos - this.height * 5
         
-    }
 
-    stop() {            
-        this.speedX = 0
-    }
+    //     this.speedY -= 5
 
-    stopFalling(){
-        this.speedY = 0
-    }
+        
+
+    //     // this.stopFalling();
+    //     // implement logic that goes like this
+    //     // after the sprite has jumped 5times its hight it 
+    //     // comes down
+    // }
+
+    // falling() {
+    //     this.speedY = -this.speedY
+        
+    // }
+
+    // stop() {            
+    //     this.speedX = 0
+    // }
+
+    // stopFalling(){
+    //     this.speedY = 0
+    // }
 
 }

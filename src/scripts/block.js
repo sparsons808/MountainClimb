@@ -1,4 +1,4 @@
-import { collison } from "./collision";
+import { collision } from "./collision";
 
 export default class Block {
     constructor(game, position) {
@@ -24,6 +24,7 @@ export default class Block {
     }
 
     update(timeDeltal) {
-        collison(this.game.sprite, this)
+        collision(this.game.sprite, this)
+        
     }
 }

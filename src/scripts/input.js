@@ -1,4 +1,6 @@
 
+import { collision } from "./collision";
+
 export function inputHandler(sprite) {
 
     document.addEventListener('keydown', (event) => {
@@ -16,7 +18,10 @@ export function inputHandler(sprite) {
 
     document.addEventListener('keydown', (event) => {
         event.preventDefault();
-        if(event.keyCode === 32) sprite.moveUp();
+        if(event.keyCode === 32) {
+            sprite.moveUp()
+            
+        }
     })
 
     document.addEventListener('keyup', (event) => {
