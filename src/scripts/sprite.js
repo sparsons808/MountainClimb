@@ -5,16 +5,22 @@ export default class Sprite {
         this.game = game
         this.speedX = 0
         this.speedY = 0
-        this.gravity = 0
+        this.gravity = 1
         this.friction = 0.9
         this.totalSpeed = 6
         this.position = {x: 200, y: 375}
         this.width = 20
         this.height = 20
-        this.Xvelocity = 5
+        this.Xvelocity = 0
         this.Yvelocity = 0
 
         this.jumping = false
+
+        this.state = {
+            up: false,
+            left: false,
+            right: false
+        }
 
         // to get the fall right have a y starting position and add speed times whatever
         // which will equal to the y ending point at which time the sprite will fall
@@ -32,10 +38,29 @@ export default class Sprite {
     update(timeDelta) {
 
 
+        if(this.state.up && this.jumping === false) {
+            this.Yvelocity -= 25
+            this.jumping = true 
+        }
+
+        if(this.state.left) {
+            this.Xvelocity -= 0.25
+        } 
+
+        if(this.state.right) {
+            this.Xvelocity += 0.25
+        }
+
+        this.Yvelocity += this.gravity
+        
+        this.position.x += this.Xvelocity
+        this.position.y += this.Yvelocity
+        
+        this.Yvelocity *= 0.9
+        this.Xvelocity *= 0.9
 
 
-        this.position.x += this.speedX
-        this.position.y += this.speedY
+        
 
         if(this.position.x + this.width > this.game.gameWidth) {
             this.position.x = this.game.gameWidth - this.width;

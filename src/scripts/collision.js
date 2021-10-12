@@ -27,7 +27,8 @@ export function collision(sprite, object) {
 
     
     if(distanceFromObject(sprite, object) < yDistanceCenter && distanceFromObject(sprite, object) < xDistanceCenter) {
-        sprite.speedY = 0
+        sprite.Yvelocity = 0
+        sprite.jumping = false
         sprite.position.y = topOfObject - sprite.height        
     } 
 

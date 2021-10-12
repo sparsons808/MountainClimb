@@ -8,37 +8,38 @@ export function inputHandler(sprite) {
         // console.log(event.keyCode);
         switch(event.keyCode) {
             case 39:
-                sprite.moveRight();
+                sprite.state.right = true
                 break;
             case 37:
-                sprite.moveLeft();
+                sprite.state.left = true
+                break;
+            case 32:
+                sprite.state.up = true
                 break;
         }
     });
 
-    document.addEventListener('keydown', (event) => {
-        event.preventDefault();
-        if(event.keyCode === 32) {
-            sprite.moveUp()
+    // document.addEventListener('keydown', (event) => {
+    //     event.preventDefault();
+    //     if(event.keyCode === 32) {
+    //         sprite.moveUp()
             
-        }
-    })
+    //     }
+    // })
 
     document.addEventListener('keyup', (event) => {
         event.preventDefault();
         switch(event.keyCode) {
             case 39:
-                if (sprite.speedX > 0) sprite.stop()
+                sprite.state.right = false
                 break;
             case 37:
-                if(sprite.speedX < 0) sprite.stop()
+                sprite.state.left = false
                 break;
             case 32:
-                sprite.falling();
+                sprite.state.up = false
+                // sprite.jumping = false
                 break;
-
-                //  13.88 pixels persecond is gravity figure out out to find time to find out velocity
-                // velocity = .4629px
         }
     }) 
 
