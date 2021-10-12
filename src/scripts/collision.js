@@ -1,21 +1,20 @@
 export function collison(sprite, object) {
-    topOfSprite = sprite.position.y
-    bottomOfSprite = sprite.position.y + sprite.height
-    leftOfSprite = sprite.position.x
-    rightOfSprite = sprite.position.x + sprite.width
+    
+    let topOfSprite = sprite.position.y
+    
+    let bottomOfSprite = sprite.position.y + sprite.height
+    let leftOfSprite = sprite.position.x
+    let rightOfSprite = sprite.position.x + sprite.width
+    
+    let topOfObject = object.position.y
+    let bottomOfObject = object.position.y + object.height
+    let leftSideOfObject = object.position.x
+    let rightSideOfObject = object.position.x + object.width
 
-    topOfObject = object.position.y
-    bottomOfObject = object.position.y + object.height
-    leftSideOfObject = object.position.x
-    rightSideOfObject = object.position.x + object.width
-
-    if(topofSprite === bottomOfObject &&
-        leftOfspright >= leftSideOfObject &&
-        rightOfSprite <= rightSideOfObject){
-            sprite.falling();
-    } else if (bottomOfSprite === topOfObject &&
-        leftOfspright >= leftSideOfObject &&
-        rightOfSprite <= rightSideOfObject){
-            sprite.stopFalling()
-        }
+    if(topOfSprite >= bottomOfObject &&
+        bottomOfSprite <= topOfObject &&
+        leftOfSprite >= leftSideOfObject &&
+        rightOfSprite <= rightSideOfObject) {
+            return true;
+    } else return false;
 }

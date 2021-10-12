@@ -1,4 +1,4 @@
-import { collison } from "./collision"
+// import { collison } from "./collision"
 
 export default class Sprite {
     constructor(game) {
@@ -20,6 +20,8 @@ export default class Sprite {
     draw(ctx) {
         ctx.fillStyle = 'green'
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
+
+        
     }
 
     update(timeDelta) {
@@ -38,6 +40,15 @@ export default class Sprite {
             reset();
         }
 
+        // this.game.objects.forEach( (object) => {
+        //     if(collison(this, object)) {
+        //         this.speedY = -this.speedY
+        //     } else if(collison(this, object) === false) {
+        //         this.speedY = 0
+        //         this.position.y = object.position.y - this.height
+        //     }
+        // });
+
         // if (this.position.y > this.game.gameHeight) {
         //     this.position.y = this.game.gameHeight - this.height
         // }
@@ -52,14 +63,23 @@ export default class Sprite {
     }
 
     moveUp() {
+        let startPos = this.position.y
+        let endPos = startPos - this.height * 5
+
         this.speedY = -this.totalSpeed + this.velocity
+
+        // do {
+        //     this.speedY = -this.totalSpeed + this.velocity
+        // } while (this.position.y > endPos);
+
+        // this.falling();
         // implement logic that goes like this
         // after the sprite has jumped 5times its hight it 
         // comes down
     }
 
     falling() {
-        this.speedY = this.totalSpeed / 2
+        this.speedY = -this.speedY
         
     }
 
