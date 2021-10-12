@@ -24,8 +24,6 @@ export default class Block {
     }
 
     update(timeDeltal) {
-        if(collison(this.game.sprite, this)) {
-            this.game.sprite.stopFalling()
-        }
+        collison(this.game.sprite, this)
     }
 }
