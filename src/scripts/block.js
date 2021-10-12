@@ -11,11 +11,17 @@ export default class Block {
     }
 
     draw(ctx) {
-        ctx.drawImage(this.block,
+        // debugger
+        this.block.onload = ctx.drawImage(
+            this.block,
             this.position.x,
             this.position.y,
             this.width,
             this.height
         );
+    }
+
+    update(timeDeltal) {
+
     }
 }

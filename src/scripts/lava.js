@@ -3,22 +3,24 @@ export default class Lava {
         this.game = game;
         this.position = position;
 
-        this.speed = 2;
-        
+        this.speed = .25;
+        this.width = 100;
+        this.height = 500;
 
         this.lava = new Image();
         this.lava.src = './assets/lava.png'
     }
 
     draw(ctx) {
-        ctx.drawImage(
+        // debugger
+        this.lava.onload = ctx.drawImage(
             this.lava,
-            this.position.y,
-            this.position.x
+            this.position.x,
+            this.position.y
         )
     }
 
     update(timeDelta) {
-        this.position.y += this.speed;
+        this.position.y -= this.speed;
     }
 }

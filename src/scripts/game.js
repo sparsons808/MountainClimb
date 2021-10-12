@@ -1,25 +1,58 @@
 import Sprite from "./sprite";
 import { buildLevel, level1 } from './levels'
 import { inputHandler } from './input'
+// import { collison } from "./collision";
+
+const STATE = {
+    MENU: 0,
+    RUNNING: 1,
+    PAUSED: 2,
+    NEWLEVEL: 3,
+    GAMEOVER: 4, 
+}
 
 export default class Game {
     constructor(gameWidth, gameHeight, ctx) {
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight
 
+        this.lives = 3  
+        // losses lives and restarts to begining of level when
+        // player falls to the bottom or into the lava
+        this.level = [level1]
+
+        this.currentLevel = 0
+        this.objects = [];
+
+        // this.gameState = STATE.MENU;
+
         this.sprite = new Sprite(this);
 
         inputHandler(this.sprite);
+    };
+
+    start() {
+        // debugger
+        this.objects = buildLevel(this, this.level[this.currentLevel]);
+        // debugger
     }
 
     draw(ctx) {
         this.sprite.draw(ctx)
-        buildLevel(ctx)
+
+        this.objects.forEach( (object) => {
+            object.draw(ctx)
+        })
     }
 
-    update(timeDelta, ctx){
+    update(timeDelta){
         this.sprite.update(timeDelta);
-        buildLevel(ctx)
+
+        this.objects.forEach( (object) => {
+            object.update(timeDelta)
+        })
+
+        // buildLevel(ctx)
     }
 
 }

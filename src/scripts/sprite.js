@@ -1,3 +1,5 @@
+import { collison } from "./collision"
+
 export default class Sprite {
     constructor(game) {
         this.game = game
@@ -21,6 +23,8 @@ export default class Sprite {
     }
 
     update(timeDelta) {
+
+
         this.position.x += this.speedX
         this.position.y += this.speedY
 
@@ -48,19 +52,23 @@ export default class Sprite {
     }
 
     moveUp() {
-        this.speedY = -this.totalSpeed - this.velocity
+        this.speedY = -this.totalSpeed + this.velocity
+        // implement logic that goes like this
+        // after the sprite has jumped 5times its hight it 
+        // comes down
     }
 
     falling() {
         this.speedY = this.totalSpeed / 2
+        
     }
 
-    stop() {
+    stop() {            
         this.speedX = 0
     }
 
-    // reset() {
-    //     this.position.y = 375
-    //     this.position.x = 200
-    // }
+    stopFalling(){
+        this.speedY = 0
+    }
+
 }
