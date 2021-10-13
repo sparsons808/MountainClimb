@@ -9,7 +9,8 @@ const STATE = {
     PAUSED: 2,
     NEWLEVEL: 3,
     GAMEOVER: 4,
-    LAVAKILL: 5
+    LAVAKILL: 5,
+    RESTARTLEVEL: 6
 }
 
 export default class Game {
@@ -24,7 +25,7 @@ export default class Game {
 
         this.currentLevel = 0
         this.objects = [];
-
+        this.state = STATE.MENU;
         // this.gameState = STATE.MENU;
 
         this.sprite = new Sprite(this);
@@ -61,15 +62,18 @@ export default class Game {
             object.update(timeDelta)
         })
 
-        
-
         // inputHandler(this.sprite);
 
         // buildLevel(ctx)
     }
 
     resetLevel() {
+        if(this.state === STATE.LAVAKILL && this.lives > 0) {
+            this.lives -= 1
 
+
+        }
+        
     }
 
 }

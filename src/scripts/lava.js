@@ -9,6 +9,8 @@ export default class Lava {
         this.width = 100;
         this.height = 500;
 
+        this.lavaKill = 5
+
         this.lava = new Image();
         this.lava.src = './assets/lava.png'
     }
@@ -23,11 +25,13 @@ export default class Lava {
     }
 
     update(timeDelta) {
-        if(this.position.y <= 100) this.stop();
-        this.position.y -= this.speed;
+        // if(this.position.y <= 100) this.stop();
+        // this.position.y -= this.speed;
 
+        // this type of collision will work for the lava
         if(collision(this.game.sprite, this)) {
-            this.game.lives -= 1
+            this.stop();
+            this.game.state = this.lavaKill
             this.game.resetLevel();
         }
     }

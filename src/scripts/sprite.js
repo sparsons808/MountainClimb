@@ -83,12 +83,12 @@ export default class Sprite {
             
         // }
 
-        for (let i = 0; i < this.game.objects.length; i++) {
-            if(collision(this, this.game.objects[i])){
-                console.log('hit')
-            }
+        // for (let i = 0; i < this.game.objects.length; i++) {
+        //     if(collision(this, this.game.objects[i])){
+        //         // console.log('hit')
+        //     }
             
-        }
+        // }
 
 
 
