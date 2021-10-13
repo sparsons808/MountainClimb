@@ -1,3 +1,5 @@
+import { collision } from "./collision";
+
 export default class Lava {
     constructor(game, position) {
         this.game = game;
@@ -21,8 +23,13 @@ export default class Lava {
     }
 
     update(timeDelta) {
-        // if(this.position.y <= 100) this.stop();
-        // this.position.y -= this.speed;
+        if(this.position.y <= 100) this.stop();
+        this.position.y -= this.speed;
+
+        if(collision(this.game.sprite, this)) {
+            this.game.lives -= 1
+            this.game.resetLevel();
+        }
     }
 
     stop() {

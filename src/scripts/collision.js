@@ -15,21 +15,21 @@ export function collision(sprite, object) {
     //     bottomOfSprite <= topOfObject &&
     //     leftOfSprite >= leftSideOfObject &&
     //     rightOfSprite <= rightSideOfObject) {
-    //         return true;
-    // } else return false;
+    //         sprite.Yvelocity = 0
+    //         sprite.jumping = false
+    //         sprite.position.y = topOfObject - sprite.height 
+    // } 
 
-    let xDistanceCenter = sprite.width / 2 + object.width / 2 - 4
-    let yDistanceCenter = sprite.height / 2 + object.height / 2 - 1
+    let xDistanceCenter = sprite.width / 2 + object.width / 2
+    let yDistanceCenter = sprite.height / 2 + object.height / 2
 
-    // if(topOfSprite === bottomOfObject){
-    //     sprite.speedY = sprite.speedY
+
+    // if(distanceFromObject(sprite, object)  ){
+    //     sprite.Yvelocity += 25
     // }
-
     
-    if(distanceFromObject(sprite, object) < yDistanceCenter && distanceFromObject(sprite, object) < xDistanceCenter) {
-        sprite.Yvelocity = 0
-        sprite.jumping = false
-        sprite.position.y = topOfObject - sprite.height        
+    if(distanceFromObject(sprite, object) < yDistanceCenter) {
+        return true       
     } 
 
 

@@ -8,8 +8,8 @@ export default class Block {
         this.block = new Image()
         this.block.src = './assets/block.png'
 
-        this.width = 35;
-        this.height = 25;
+        this.width = 24;
+        this.height = 24;
     }
 
     draw(ctx) {
@@ -24,7 +24,11 @@ export default class Block {
     }
 
     update(timeDeltal) {
-        collision(this.game.sprite, this)
+        if(collision(this.game.sprite, this)){
+            this.game.sprite.Yvelocity = 0
+            this.game.sprite.jumping = false
+            this.game.sprite.position.y = this.position.y - this.game.sprite.height 
+        }
         
     }
 }

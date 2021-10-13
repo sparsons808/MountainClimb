@@ -8,9 +8,9 @@ export default class Sprite {
         this.gravity = 1
         this.friction = 0.9
         this.totalSpeed = 6
-        this.position = {x: 200, y: 375}
-        this.width = 20
-        this.height = 20
+        this.position = {x: 0, y: 440}
+        this.width = 16
+        this.height = 16
         this.Xvelocity = 0
         this.Yvelocity = 0
 

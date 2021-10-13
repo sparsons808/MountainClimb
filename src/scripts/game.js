@@ -8,7 +8,8 @@ const STATE = {
     RUNNING: 1,
     PAUSED: 2,
     NEWLEVEL: 3,
-    GAMEOVER: 4, 
+    GAMEOVER: 4,
+    LAVAKILL: 5
 }
 
 export default class Game {
@@ -29,6 +30,9 @@ export default class Game {
         this.sprite = new Sprite(this);
 
         inputHandler(this.sprite);
+
+        this.heart = new Image()
+        this.heart.src = './assets/heart.png'
     };
 
     start() {
@@ -40,6 +44,10 @@ export default class Game {
     draw(ctx) {
         // debugger
         this.sprite.draw(ctx)
+
+        for (let i = 0; i < 3; i++) {
+              
+        }
 
         this.objects.forEach( (object) => {
             object.draw(ctx)
@@ -58,6 +66,10 @@ export default class Game {
         // inputHandler(this.sprite);
 
         // buildLevel(ctx)
+    }
+
+    resetLevel() {
+
     }
 
 }
