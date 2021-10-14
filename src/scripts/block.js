@@ -23,7 +23,7 @@ export default class Block {
         );
     }
 
-    update(timeDeltal) {
+    update() {
         if(collision(this.game.sprite, this)){
             this.game.sprite.Yvelocity = 0
             this.game.sprite.jumping = false

@@ -5,8 +5,8 @@ export default class Sprite {
         this.game = game
         this.speedX = 0
         this.speedY = 0
-        this.gravity = 1
-        this.friction = 0.9
+        this.gravity = 0.7
+        this.friction = 0.85
         this.totalSpeed = 6
         this.position = {x: 0, y: 440}
         this.width = 16
@@ -35,20 +35,20 @@ export default class Sprite {
         
     }
 
-    update(timeDelta) {
+    update() {
 
 
         if(this.state.up && this.jumping === false) {
-            this.Yvelocity -= 25
+            this.Yvelocity -= 12
             this.jumping = true 
         }
 
         if(this.state.left) {
-            this.Xvelocity -= 0.25
-        } 
+            this.Xvelocity -= 0.15
+        }
 
         if(this.state.right) {
-            this.Xvelocity += 0.25
+            this.Xvelocity += 0.15
         }
 
         this.Yvelocity += this.gravity
@@ -56,8 +56,8 @@ export default class Sprite {
         this.position.x += this.Xvelocity
         this.position.y += this.Yvelocity
         
-        this.Yvelocity *= 0.9
-        this.Xvelocity *= 0.9
+        // this.Xvelocity *= this.friction
+        // this.Yvelocity *= this.friction
 
 
         
@@ -70,8 +70,10 @@ export default class Sprite {
         if(this.position.x < 0) this.position.x = 0;
 
         if(this.position.y - this.height === this.game.gameHeight){
-            // reset();
+            // ret();
         }
+
+        
 
         // for (let i = 0; i < this.game.objects.length; i++) {
         //     if(this.position.x > this.game.objects[i].position.x + this.game.objects[i].width ||
@@ -95,6 +97,11 @@ export default class Sprite {
         // if (this.position.y > this.game.gameHeight) {
         //     this.position.y = this.game.gameHeight - this.height
         // }
+    }
+
+    reset() {
+        this.position.x = 0;
+        this.position.y = 440
     }
 
     // moveLeft() {

@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // lava make one that is 450 by 500 in hieght
 
     let time = 0
-    game.start();
     function engine(currentTime) {
         let dT = currentTime - time
         time = currentTime

@@ -1,10 +1,9 @@
 
-import { collision } from "./collision";
-
-export function inputHandler(sprite) {
+export function inputHandler(sprite, game) {
 
     document.addEventListener('keydown', (event) => {
         event.preventDefault();
+        // alert(event.keyCode);
         // console.log(event.keyCode);
         switch(event.keyCode) {
             case 39:
@@ -13,11 +12,19 @@ export function inputHandler(sprite) {
             case 37:
                 sprite.state.left = true
                 break;
-            case 32:
+            case 38:
                 sprite.state.up = true
                 break;
+            case 32:
+                game.start();
+                break;
+            case 27:
+                game.pauseGame();
+                break;
+                
         }
     });
+
 
     // document.addEventListener('keydown', (event) => {
     //     event.preventDefault();
@@ -32,11 +39,13 @@ export function inputHandler(sprite) {
         switch(event.keyCode) {
             case 39:
                 sprite.state.right = false
+                sprite.Xvelocity = 0
                 break;
             case 37:
                 sprite.state.left = false
+                sprite.Xvelocity = 0
                 break;
-            case 32:
+            case 38:
                 sprite.state.up = false
                 // sprite.jumping = false
                 break;
