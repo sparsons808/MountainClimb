@@ -15,7 +15,7 @@
 }
 
 body {
-    background-color: rgb(8, 0, 0);
+    background-color: rgb(24, 0, 0);
     height: 100%;
     width: 100%
 }
@@ -94,7 +94,7 @@ h1 {
 .icons {
     display: flex;
     justify-content: space-between;
-    position: absolute;
+    position: fixed;
     width: 100px;
     height: 25px;
     top: 84%;
@@ -104,4 +104,6 @@ h1 {
 .in {
     margin-top: 5px;
 }
+
+
 
