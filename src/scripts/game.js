@@ -1,6 +1,7 @@
 import Sprite from "./sprite";
 import { buildLevel, level1 } from './levels'
 import { inputHandler } from './input'
+
 // import { collison } from "./collision";
 
 const STATE = {
@@ -43,6 +44,8 @@ export default class Game {
     };
 
     start() {
+        
+
         if(this.state != STATE.MENU && 
         this.state != STATE.RESTARTLEVEL &&
         this.state != STATE.NEWLEVEL) return;

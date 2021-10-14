@@ -50,6 +50,21 @@ export function inputHandler(sprite, game) {
                 // sprite.jumping = false
                 break;
         }
-    }) 
+    });
+
+    const info = document.querySelector('.modal');
+    const container = document.querySelector('.modal-container');
+
+    info.addEventListener('click', (event) => {
+        container.classList.add('live');
+    });
+
+    const close = document.querySelector('.close')
+
+    close.addEventListener('click', (event) => {
+        container.classList.remove('live');
+    });
+    
+    
 
 }

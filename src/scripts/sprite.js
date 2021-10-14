@@ -39,7 +39,7 @@ export default class Sprite {
 
 
         if(this.state.up && this.jumping === false) {
-            this.Yvelocity -= 12
+            this.Yvelocity -= 10
             this.jumping = true 
         }
 

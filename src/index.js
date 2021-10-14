@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let game = new Game(GAME_WIDTH, GAME_HEIGHT)
 
     // lava make one that is 450 by 500 in hieght
-
     let time = 0
     function engine(currentTime) {
         let dT = currentTime - time
